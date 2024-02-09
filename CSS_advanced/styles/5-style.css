@@ -4,7 +4,7 @@ html {
     font-size: 62.5%;
 }
 body {
-    color:#161616
+    color:#161616;
     font-family: var(--font-family-base);
     /*Any fonts in the body set to font-size-medium*/
     font-size: var(--font-size-medium);
@@ -12,7 +12,7 @@ body {
 /*This makes the headings use the same font stack*/
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family-title);
-  }
+}
 a {
     color:#161616
 }
