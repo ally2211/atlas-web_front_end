@@ -9,6 +9,10 @@ body {
     font-family: var(--font-family-base);
     /*Any fonts in the body set to font-size-medium*/
     font-size: var(--font-size-medium);
+    /*ensure that the minimum height of line boxes within 
+    the body is 1.5 times the font size, providing optimal 
+    readability and a comfortable visual flow for text content.*/
+    line-height: var(--line-height-base);
 }
 /*This makes the headings use the same font stack*/
 h1, h2, h3, h4, h5, h6 {
@@ -35,8 +39,8 @@ a {
     /* Using the color-black variable */
     --text-color: var(--color-black);
     /* default text throughout the website unless overridden*/
-    --font-family-base: 'Open Sans, Helvetica Neue', Helvetica, Arial, sans-serif;
-    --font-family-title: 'Raleway, Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-family-base: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-family-title: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --font-size-small: 1.2rem; /* 12px when base is 10px */
     --font-size-medium: 1.6rem; /* 16px when base is 10px */
     --font-size-large: 1.8rem; /* 18px when base is 10px */
@@ -45,5 +49,9 @@ a {
     /*Makes regular and bold available for use in entire stylesheet.*/
     --font-weight-regular: 400;
     --font-weight-bold: 700;
-
+    /*These values represent the ratio of the line height to the font size,
+     allowing for scalable and consistent spacing across different text sizes.*/
+    --line-height-small: 1.2;
+    --line-height-base: 1.5;
+    --line-height-big: 1.8;
 }   
