@@ -9,6 +9,7 @@ body {
     font-family: var(--font-family-base);
     /*Any fonts in the body set to font-size-medium*/
     font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-regular);
     /*ensure that the minimum height of line boxes within 
     the body is 1.5 times the font size, providing optimal 
     readability and a comfortable visual flow for text content.*/
@@ -17,6 +18,7 @@ body {
 /*This makes the headings use the same font stack*/
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family-title);
+    font-weight: var(--font-weight-bold);
 }
 a {
     color:#161616;
