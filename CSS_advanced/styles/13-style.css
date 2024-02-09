@@ -54,7 +54,7 @@ a[href]:active {
     color: var(--section-title-color);
 }
 .section-tagline {
-    color: #D73953
+    color: #D73953;
     font-family: var(--font-family-title);
     text-transform: var(--section-tagline-transform);
     font-weight: var(--font-weight-bold);

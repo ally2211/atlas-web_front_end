@@ -25,13 +25,13 @@ a {
     text-decoration: none;
 }
 .visually-hidden {
-    display: none
+    display: none;
 }
 .card-category {
-    color:#D73953
+    color:#D73953;
 }
 .section-tagline {
-    color: #D73953
+    color: #D73953;
 }
 :root {
     --color-primary: #d73953;
