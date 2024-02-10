@@ -178,7 +178,7 @@ ul.row {
 /* Select all classes starting with 'col-' */
 [class^="col-"] {
     float: left;
-    padding: calc(5px);
+    padding: calc(8px);
 }
   
 /* Target the .footer class */
