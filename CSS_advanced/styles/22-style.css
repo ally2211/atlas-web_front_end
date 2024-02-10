@@ -154,6 +154,11 @@ a:active {
     --padding-half: calc(0.5(16px)); /* Half of the root element for top and bottom */
     --section-tagline-margin: 0;
 }
+[data-section-theme="dark"] {
+    --text-color: var(--color-white); /* Redefine text color for dark theme */
+    --section-title-color: var(--color-white); /* Redefine section title color for dark theme */
+    background-color: var(--color-black); /* Set background to black for dark theme */
+}
 /* Style for .section-tagline class */
 .section-tagline {
     margin: var(--section-tagline-margin);
