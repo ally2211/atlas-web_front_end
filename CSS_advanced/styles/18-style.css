@@ -106,7 +106,7 @@ a:active {
 }
 .nav .nav-link {
     display: block;
-    padding: var(--padding-half) 1rem;
+    padding: var(--padding-half) 0;
 }
 .nav .nav-link:hover {
   color: var(--nav-item-link-hover);
