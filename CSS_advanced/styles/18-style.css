@@ -94,22 +94,20 @@ a:active {
     text-align: center;
 }
 /* For the nav-item class within the nav class */
-.nav-item {
-    font-family: var(--nav-item-font-family);
-    font-weight: var(--nav-item-font-weight);
+.nav .nav-item {
+    font-family: var(--font-family-title);
+    font-weight: var(--font-weight-bold);
     font-size: var(--font-size-medium);
     letter-spacing: var(--nav-item-letter-spacing);
     display: var(--nav-item-display);
     margin: var(--nav-item-margin);
-} 
-/* For the nav-link class within the nav class */
-.nav-link {
-    display: block;
-    padding: var(--padding-half) 1rem; /* Half of the root element for top and bottom, and 1rem for left and right */
 }
-/* Hover state for the nav-link class within the nav class */
-.nav-link:hover {
-    color: var(--nav-item-link-hover);
+.nav .nav-link {
+    display: block;
+    padding: calc(1rem / 2) 1rem; /* Half for top and bottom, equal to the root element for left and right */
+}
+  .nav .nav-link:hover {
+  color: var(--nav-item-link-hover);
 }
 :root {
     --color-primary: #d73953;
@@ -147,12 +145,10 @@ a:active {
     --section-footer-padding: 3rem 0 0;
     --section-footer-align: center;
     --footer-padding: 5rem 0 1rem;
-    --nav-item-font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    --nav-item-font-weight: 700;
-    --nav-item-letter-spacing: 0.04em; /* 4% of the root element font size */
+    --nav-item-letter-spacing: 0.04em; /* 4% of the root element */
     --nav-item-display: inline-block;
     --nav-item-margin: 0 0 3rem 0; /* 3 times the root element on the bottom, 0 elsewhere */
-    --nav-item-link-hover: var(--color-primary);
+    --nav-item-link-hover: #d73953; /* Example primary color */
     --padding-half: calc(0.5rem); /* Half of the root element for top and bottom */
 }
 /* Target the .footer class */
