@@ -180,6 +180,10 @@ a:active {
     float: left;
     padding: calc(0.5rem); /* Half of the root element, adjust if root font size is different */
   }
+/* Target the .footer class */
+.footer {
+    padding: var(--footer-padding);
+}
 /* Style for footer copyright class */
 footer .copyright {
     margin: 0;
@@ -189,8 +193,4 @@ footer .copyright {
 /* Style for all <ul> in the footer class */
 footer ul {
     text-align: right;
-}
-/* Target the .footer class */
-.footer {
-    padding: var(--footer-padding);
 }
