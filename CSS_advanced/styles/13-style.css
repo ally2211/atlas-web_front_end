@@ -20,9 +20,13 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family-title);
     font-weight: var(--font-weight-bold);
 }
-a[href] {
+a {
     color:#161616;
     text-decoration: none;
+}
+/* Override for anchor elements without href attributes */
+a:not([href]) {
+    text-decoration: underline; /* Reapply underlining for anchor tags without href */
 }
 /* Visited state for the link */
 a[href]:visited {
