@@ -100,8 +100,6 @@ a:active {
     font-size: var(--nav-item-font-size);
     display: var(--nav-item-display);
     margin: var(--nav-item-margin);
-}
-.nav-item {
     letter-spacing: var(--nav-item-letter-spacing);
 }
 .nav .nav-link {
