@@ -24,20 +24,16 @@ a:link {
     color:#161616;
     text-decoration: none;
 }
-/* Override for anchor elements without href attributes */
-a:not([href]) {
-    text-decoration: underline; /* Reapply underlining for anchor tags without href */
-}
 /* Visited state for the link */
-a[href]:visited {
+a:visited {
     font-style: italic; /* Italicizes text */
 } 
 /* Hover state for the link */
-a[href]:hover {
+a:hover {
     text-decoration: underline; /* Adds an underline on hover */
 }
 /* Active state for the link */
-a[href]:active {
+a:active {
     background-color: var(--color-light-grey); /* Sets the background color to light grey */
 }
 .visually-hidden {
