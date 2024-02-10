@@ -256,8 +256,8 @@ footer ul {
 }
 .card-testimonial .card-avatar {
     border-radius: 50%; /* Creates a circle */
-    width: calc(10 * 1rem); /* 10x the root element size, assuming 1rem is the base */
-    height: calc(10 * 1rem); /* Equal width and height for a circle */
+    width: calc(10 * 1.6rem); /* 10x the root element size, assuming 1rem is the base */
+    height: calc(10 * 1.6rem); /* Equal width and height for a circle */
 }
 .card-testimonial .card-quote cite {
     display: block;
