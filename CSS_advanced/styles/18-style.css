@@ -104,7 +104,7 @@ a:active {
 }
 .nav .nav-link {
     display: block;
-    padding: calc(1rem / 2) 1rem; /* Half for top and bottom, equal to the root element for left and right */
+    padding: var(--padding-half) 1rem;
 }
 .nav .nav-link:hover {
   color: var(--nav-item-link-hover);
