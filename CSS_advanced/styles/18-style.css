@@ -89,6 +89,15 @@ a:active {
     list-style: none; /* Removes default list styling */
     text-align: center;
 }
+/* For the nav-item class within the nav class */
+.nav .nav-item {
+    font-family: var(--font-family-title);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-medium);
+    letter-spacing: var(--nav-item-letter-spacing);
+    display: var(--nav-item-display);
+    margin: var(--nav-item-margin);
+  } 
 /* Targeting the navbar-menu class */
 .navbar-menu {
     float: right;
