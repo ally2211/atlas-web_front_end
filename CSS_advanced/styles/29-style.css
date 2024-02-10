@@ -164,7 +164,7 @@ a:active {
     --nav-item-letter-spacing: .04(1.6rem); /* 4% of the root element */
     --nav-item-display: inline-block;
     --nav-item-margin: 0 0 3rem 0; /* 3 times the root element on the bottom, 0 elsewhere */
-    --nav-item-link-hover: var(--color-primary); /* Example primary color */
+    --nav-item-link-hover: var(--color-white); /* Example primary color */
     --padding-half: calc(0.5(16px)); /* Half of the root element for top and bottom */
     --section-tagline-margin: 0;
     --button-display: inline-block;
