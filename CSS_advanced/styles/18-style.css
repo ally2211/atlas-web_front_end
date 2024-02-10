@@ -106,7 +106,7 @@ a:active {
     display: block;
     padding: calc(1rem / 2) 1rem; /* Half for top and bottom, equal to the root element for left and right */
 }
-  .nav .nav-link:hover {
+.nav .nav-link:hover {
   color: var(--nav-item-link-hover);
 }
 :root {
@@ -151,7 +151,7 @@ a:active {
     --nav-item-letter-spacing: 0.04em; /* 4% of the root element */
     --nav-item-display: inline-block;
     --nav-item-margin: 0 0 3rem 0; /* 3 times the root element on the bottom, 0 elsewhere */
-    --nav-item-link-hover: #d73953; /* Example primary color */
+    --nav-item-link-hover: var(--color-primary); /* Example primary color */
     --padding-half: calc(0.5rem); /* Half of the root element for top and bottom */
 }
 /* Target the .footer class */
