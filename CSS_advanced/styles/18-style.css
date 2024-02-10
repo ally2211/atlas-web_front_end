@@ -82,6 +82,10 @@ a:active {
     margin-left: auto;
     margin-right: auto;
 }
+/* Targeting the navbar-menu class */
+.navbar-menu {
+    float: right;
+}
 /* For the nav class */
 .nav {
     margin: 0;
@@ -97,20 +101,7 @@ a:active {
     letter-spacing: var(--nav-item-letter-spacing);
     display: var(--nav-item-display);
     margin: var(--nav-item-margin);
-  } 
-/* Targeting the navbar-menu class */
-.navbar-menu {
-    float: right;
-}
-/* For the nav-item class within the nav class */
-.nav .nav-item {
-  font-family: var(--font-family-title);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-medium);
-  letter-spacing: var(--nav-item-letter-spacing);
-  display: var(--nav-item-display);
-  margin: var(--nav-item-margin);
-}
+} 
 /* For the nav-link class within the nav class */
 .nav .nav-link {
     display: block;
@@ -156,14 +147,10 @@ a:active {
     --section-footer-padding: 3rem 0 0;
     --section-footer-align: center;
     --footer-padding: 5rem 0 1rem;
-    --font-family-title: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    --font-weight-bold: 700;
-    --font-size-medium: 1.6rem;
     --nav-item-letter-spacing: 0.04em; /* 4% of the root element font size */
     --nav-item-display: inline-block;
     --nav-item-margin: 0 0 3rem 0; /* 3 times the root element on the bottom, 0 elsewhere */
     --nav-item-link-hover: var(--color-primary);
-    --color-primary: #d73953; /* Example primary color */
 }
 /* Target the .footer class */
 .footer {
