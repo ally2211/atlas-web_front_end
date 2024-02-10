@@ -151,7 +151,7 @@ a:active {
     --nav-item-display: inline-block;
     --nav-item-margin: 0 0 3rem 0; /* 3 times the root element on the bottom, 0 elsewhere */
     --nav-item-link-hover: var(--color-primary); /* Example primary color */
-    --padding-half: calc(0.5(1.6rem)); /* Half of the root element for top and bottom */
+    --padding-half: calc(0.5(16px)); /* Half of the root element for top and bottom */
     --section-tagline-margin: 0;
 }
 /* Style for .section-tagline class */
@@ -178,7 +178,7 @@ ul.row {
 /* Select all classes starting with 'col-' */
 [class^="col-"] {
     float: left;
-    padding: calc(8px);
+    padding: var(--padding-half);
 }
   
 /* Target the .footer class */
