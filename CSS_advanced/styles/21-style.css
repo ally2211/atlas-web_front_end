@@ -7,7 +7,6 @@
 html {
     scroll-behavior: smooth;
     /* All fonts in the html at 62.5% of their normal size */
-    font-size: 62.5%;
     font-size: 62.5%; /* Sets the base font size to 10px */
 }
 body {
@@ -179,7 +178,7 @@ ul.row {
 /* Select all classes starting with 'col-' */
 [class^="col-"] {
     float: left;
-    padding: calc(0.5(1.6rem));
+    padding: calc(5px);
 }
   
 /* Target the .footer class */
