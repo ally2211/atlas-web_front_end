@@ -152,7 +152,7 @@ a:active {
     --nav-item-display: inline-block;
     --nav-item-margin: 0 0 3rem 0; /* 3 times the root element on the bottom, 0 elsewhere */
     --nav-item-link-hover: var(--color-primary); /* Example primary color */
-    --padding-half: calc(0.5rem); /* Half of the root element for top and bottom */
+    --padding-half: calc(0.5(var(--font-size-medium))); /* Half of the root element for top and bottom */
 }
 /* Target the .footer class */
 .footer {
