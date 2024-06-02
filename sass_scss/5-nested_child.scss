@@ -1,7 +1,7 @@
 body {
   $primary-color: #3D3D3D;
   color: $primary-color; 
-  > :first-child.red {
+  > .red {
     $primary-color: #FF0000;
     color: $primary-color; }
 }
