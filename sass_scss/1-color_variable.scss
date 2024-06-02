@@ -1,6 +1,12 @@
-@import 'my_style1';
-body {
-  color: #3D3D3D; }
+$primary-color: #3D3D3D;
+$body-element: 'body';
+$p-element: 'p';
 
-p {
-  color: #3D3D3D; }
+//this is converted to css
+#{$body-element} {
+    color: $primary-color;
+}
+
+#{$p-element} {
+  color: $primary-color;
+}
