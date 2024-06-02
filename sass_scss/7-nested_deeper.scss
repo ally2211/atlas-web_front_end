@@ -1,0 +1,9 @@
+body {
+  $font-size: 14px;  
+  font-size: $font-size;
+  h1 {
+    $font-size: 16px; 
+    font-size: $font-size; }
+    h1.smaller {
+      font-size: $font-size; }
+}
