@@ -376,9 +376,10 @@
 
     /* Section ABOUT US
       ============================= */
-    
-    [class^='col-'] {
-        align-self: center;
+    .section-about-us {
+        [class^='col-'] {
+            align-self: center;
+        }
     }
   /*** 4. CARD ***/
   
