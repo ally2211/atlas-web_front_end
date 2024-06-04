@@ -247,21 +247,22 @@
   /* Header
       ============================= */
   
-  .header {
-    padding: var(--header-padding);
-         position: relative;
-         z-index: 3;
-         background: transparent;
-  }
+   .header {
+      padding: var(--header-padding);
+      position: relative;
+      z-index: 3;
+      background: transparent;
+    }
 
-  .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   
-  .main-article {
-    padding: 5rem 0;
+    .main-article {
+      padding: 5rem 0;
+    }
     /* Post
     ============================= */
     .post {
@@ -274,7 +275,7 @@
         order: -1;
         min-width: 20%;
     }
-  }
+
   /* Footer
       ============================= */
   
