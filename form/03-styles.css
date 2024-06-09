@@ -136,8 +136,8 @@ a:active {
 label {
   cursor: pointer;
   display: block;
-  text-wrap: nowrap;
-  size: 1.4rem;
+  white-space: nowrap;
+  font-size: 1.4rem;
   padding: 0 0 .5rem;
 }
 .button {
