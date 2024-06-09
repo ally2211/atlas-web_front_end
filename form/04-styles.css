@@ -152,7 +152,7 @@ input {
   outline: 0;
 }
 
-input[type="text"], [type="email"] {
+input[type="text"], [type="email"], [type="textarea"] {
   padding-right: 3rem;
 }
 
