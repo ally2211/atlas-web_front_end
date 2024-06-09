@@ -141,7 +141,7 @@ label {
   padding: 0 0 .5rem;
 }
 
-input {
+input[type="text"], [type="email"], textarea {
   position: relative;
   width: 100%;
   padding: 1.2rem;
