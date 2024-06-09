@@ -152,11 +152,11 @@ input {
   outline: 0;
 }
 
-input[type="text"], [type="email"], [type="textarea"] {
+input[type="text"], [type="email"] {
   padding-right: 3rem;
 }
 
-input [type="text"]:focus, [type="email"]:focus {
+input [type="text"]:focus, [type="email"]:focus, textarea:focus {
   border: .1rem solid var(--color-light-grey);
   background-color: var(--color-light-grey);
 }
