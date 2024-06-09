@@ -133,6 +133,13 @@ a:active {
   background-color: var(--color-light-grey);
 }
 
+label {
+  cursor: pointer;
+  display: block;
+  text-wrap: nowrap;
+  size: 1.4rem;
+  padding: 0 0 .5rem;
+}
 .button {
   display: var(--button-display);
   padding: var(--button-padding);
