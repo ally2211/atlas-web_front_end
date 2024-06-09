@@ -156,7 +156,7 @@ input[type="text"], input[type="email"] {
   padding-right: 3rem;
 }
 
-input [type="text"]:focus, [type="email"]:focus, textarea:focus {
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
   border: .1rem solid var(--color-light-grey);
   background-color: var(--color-light-grey);
 }
