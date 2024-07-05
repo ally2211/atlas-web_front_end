@@ -8,15 +8,16 @@
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
-    <body>
-        <h1>Small title</h1>
-        <h1>Big title</h1>
+    <body container mt-5>
+        <h1 class="d-none d-lg-block">Big title</h1>
+        <h1 class="d-block d-lg-none">Small title</h1>
+        
 
-        <div>
-            <div>Left</div>
-            <div>Middle</div>
-            <div>Right</div>
+        <div class="container row bg-info border-info rounded p-3 border-3 ">
+            <div class="col p-3 text-white justify-content-start border-bottom border-end border border-white">Left</div>
+            <div class="col p-3 text-white justify-content-center">Middle</div>
+            <div class="col p-3 text-white justify-content-end">Right</div>
         </div>
-
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
