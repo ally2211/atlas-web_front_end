@@ -1,15 +1,21 @@
 function divideBy(firstNumber){
     return function(secondNumber){
-        secondNumber/firstNumber;
+        return secondNumber/firstNumber;
     }
 }
 function addBy(firstNumber){
     return function(secondNumber){
-        secondNumber + firstNumber;
+        return secondNumber + firstNumber;
     }
 }
 
-addBy100 = addBy(100);
-addBy1000 = addBy(1000);
-divideBy10 = divideBy(10);
-divideBy100 = divideBy(100);
+const addBy100 = addBy(100);
+const addBy1000 = addBy(1000);
+const divideBy10 = divideBy(10);
+const divideBy100 = divideBy(100);
+
+// executing code here too to see results faster 
+console.log(addBy100(20));
+console.log(divideBy10(20));
+console.log(divideBy100(200));
+console.log(addBy1000(20));
