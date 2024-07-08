@@ -1,28 +1,44 @@
-export function studentHogwarts(){
+function studentHogwarts(newName=null) {
     let privateScore = 0;
-    let name = null;
-    this.changeScoreBy = function(points) {
-        privateScore += points;
-    };
+    let name = newName;
 
+    function changeScoreBy(points) {
+        privateScore += points;
+        //console.log("privateScore:" + privateScore);
+        }
+    function setName(newName){
+            name = newName;
+        }
+    function rewardStudent(){
+            changeScoreBy(1);
+  
+        }
+    function penalizeStudent(){
+            changeScoreBy(-1);
+        }
+    function getScore() {
+            return `${name}: ${privateScore}`;
+        }
+    return {
+        setName: setName,
+        rewardStudent: rewardStudent,
+        penalizeStudent: penalizeStudent,
+        getScore: getScore
+    };
 }
-export function setName(newName){
-        name = newName;
-    }
-export function rewardStudent(){
-        changeScoreBy(1);
-    }
-export function penalizeStudent(){
-        changeScoreBy(-1);
-    }
-export function getScore() {
-        return name + ": " + privateScore;
-    }
 
 const harry = new studentHogwarts('Harry');
-harry.setName = "Harry";
-harry.rewardStudent;
-harry.rewardStudent;
-harry.rewardStudent;
-harry.rewardStudent;
-console.log(harry.getScore);
+harry.setName = ("Harry");
+harry.rewardStudent();
+harry.rewardStudent();
+harry.rewardStudent();
+harry.rewardStudent();
+console.log(harry.getScore());
+
+const Draco = new studentHogwarts('Draco');
+Draco.setName = ("Draco");
+Draco.rewardStudent();
+Draco.penalizeStudent();
+Draco.penalizeStudent();
+Draco.penalizeStudent();
+console.log(Draco.getScore());
