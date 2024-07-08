@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <title>Task 0</title>
+
+    </head>
+
+    <body>
+        <div id="test">if you see this text, jquery is not working.</div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script type="application/javascript">
+            var $jq = jQuery.noConflict();
+            $jq(document).ready(function() {
+                $jq("#test").hide();
+                if (window.jQuery) {
+                    console.log("jQuery has loaded correctly")
+                } {
+                    console.log("jQuery has not loaded correctly");
+                }
+            });
+        
+    </script>
+    </body>
+
+</html>
