@@ -13,7 +13,7 @@ function main(){
 
     document.addEventListener('DOMContentLoaded', (event) => {
         const newParagraph = document.createElement('p');
-        newParagraph.textContent = 'Welcome Atlass!';
+        newParagraph.textContent = 'Welcome Atlas!';
         document.body.appendChild(newParagraph);
 
         const newButton1 = document.createElement('button');
