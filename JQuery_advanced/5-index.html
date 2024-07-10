@@ -29,8 +29,9 @@
             var row = $(`<tr></tr>`);
             row.append(`<td>${firstName}</td>`);
             row.append(`<td>${lastName}</td>`); 
-            row.append(`<td id="xtd">(x)</td>`); 
+            row.append('<td id="xtd"><span class="remove-row">(x)</span></td>');
             $("tbody", "#my-table").append(row); 
+            
         }
 
         createFamilyTree();
@@ -43,8 +44,8 @@
 
             $('#my-table #xtd').css('background-color', 'orange');
 
-            $('#my-table #xtd ').click(function() {
-                $('#my-table #xtd').remove()
+            $('#my-table').on('click', '.remove-row',function() {
+                $(this).closest('tr').remove();
             });
 
          // Apply background color to the second cell of each row
