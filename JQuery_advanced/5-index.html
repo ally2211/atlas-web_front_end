@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Task 5</title>
+
+    </head>
+    <body>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script type="application/javascript">
+        
+    $(document).ready(function() {
+        function createFamilyTree() {
+            var table = $(`<table id="my-table"></table>`);
+            var thead = $(`<thead></thead>`);
+            var tbody = $(`<tbody></tbody>`);
+
+            var headerRow =  $(`<tr></tr>`);
+            headerRow.append('<th>Firstname</th>');
+            headerRow.append('<th>Lastname</th>');
+            thead.append(headerRow);
+            table.append(thead);
+            table.append(tbody);
+            $('body').append(table);
+        }
+    
+        function addNewMember(firstName, lastName) {
+            var row = $(`<tr></tr>`);
+            row.append(`<td>${firstName}</td>`);
+            row.append(`<td>${lastName}</td>`); 
+            row.append(`<td id="xtd">(x)</td>`); 
+            $("tbody", "#my-table").append(row); 
+        }
+
+        createFamilyTree();
+         
+            addNewMember('Guillaume','Salva');
+            addNewMember('Arielle','Snizt');
+            addNewMember('Fanette','Snizt');
+            addNewMember('Gerard','Snizt');
+            addNewMember('Victor','Salva');
+
+            $('#my-table #xtd').css('background-color', 'orange');
+
+            $('#my-table #xtd ').click(function() {
+                $('#my-table #xtd').remove()
+            });
+
+         // Apply background color to the second cell of each row
+            // $('td').each(function() {
+            //     $(this).find('td').eq(1).css('background-color', 'yellow');
+    })
+    </script>
+    </body>
+
+</html>
