@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Task 5</title>
+
+    </head>
+    <body>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script type="application/javascript">
+        
+            $(document).ready(function() {
+                function createSearchForm() {
+                    let searchTxt = $('<input id = "searchTxt">').attr('type', 'text');
+                    let submitButton = $('<button id="submitButton">Submit</button>');
+                    $("body").append(searchTxt).append(submitButton);
+
+                    $('#submitButton').click(function() {
+                        let searchTerm = $('#searchTxt').val();
+                        if (searchTerm) {
+                            queryWikipedia(searchTerm);
+                        } else {
+                            alert('Need a search term.')
+                        }
+                    });
+                };
+
+                function addNewArticle (id, title, snippet) {
+                    let ul = $(`<ul></ul>`);
+                    let li = $(`<li></li>`);
+                    let p1 =  $(`<span>${id} - <strong>${title}</strong></span>`);
+                    let p2 = $(`<span><br>${snippet}</span>`);
+                    let lineitem = li.append(p1).append(p2);
+                    ul.append(lineitem);
+                    
+                    $('body').append(ul);
+                }
+                function queryWikipedia(search){
+                        let searchTerm = (`${search}`);
+                        console.log(searchTerm);
+                        if (searchTerm) {
+                            $.ajax({
+                                url: 'https://en.wikipedia.org/w/api.php',
+                                data: {
+                                    action: 'query',
+                                    list: 'search',
+                                    srsearch: searchTerm,
+                                    format: 'json',
+                                    origin: '*'
+                                },
+                                dataType: 'json',
+                                success: function (data) {
+                                    var results = data.query.search;
+                                    console.log(data);
+                                    //$('#results').empty(); // Clear previous results
+                                    $.each(results, function(index, results) {
+                                        console.log(results.pageid,results.title, results.snippet);
+                                        addNewArticle(results.pageid, results.title, results.snippet)
+                                    });
+                                },
+                            });
+                        } else {
+                            alert('Please enter a search term.');
+                        }
+                    }
+                createSearchForm();
+            }); 
+        
+    </script>
+    </body>
+</html>
