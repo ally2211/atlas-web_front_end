@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <h2>Login to the website</h2>
+        <input type="text" id="firstname" name="fname" placeholder="Firstname">
+        <input type="email" id="email" name="email" placeholder="Email">
+        <input type="submit" id="LogInBtn" value ="Log me in">
+ 
+    <h2>Cookies</h2>
+        <input type="submit" id="ShowCookiesBtn" value ="Show the cookies">
+
+    <div id="cookieDiv"></div>
+        <script>
+            function showCookies() {
+                const name = getCookie('firstname');
+                const email = getCookie('email');
+                const targetDiv = $('#cookieDiv');
+                content ='Cookies: Name=' + name + ', Email=' + email;
+                //targetDiv.html('Cookies: Name=' + name + ', Email=' + email);
+                createTextElement(content, targetDiv);
+            }
+            // Function to create a text element
+            function createTextElement(content, target) {
+                const newPara = $('<p></p>').text(content);
+                $(target).append(newPara);
+            }
+
+            // Function to set a cookie
+            function setCookies(name, namevalue, days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                const expires = "expires=" + date.toUTCString();
+                document.cookie = name + "=" + namevalue + ";" + expires + ";path=/";
+            }
+            // Function to get a cookie by name
+            function getCookie(name) {
+                const nameEQ = name + "=";
+                const ca = document.cookie.split(';');
+                for (let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+                }
+                return null;
+            }
+            // Button click event to set the cookies
+            $('#LogInBtn').on('click', function() {
+                const nameValue = $('#firstname').val();
+                const emailValue = $('#email').val();
+                setCookies('firstname', nameValue, 10); 
+                setCookies('email', emailValue, 10); 
+            });
+
+            $('#ShowCookiesBtn').on('click', function() {
+                showCookies(); // Update the displayed cookies
+            });
+            
+    </script>
+</body>
+</html>
