@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart Example</title>
+    <title>Shopping Cart Example with Session Storage</title>
 </head>
 <body>
     <h1>Store Items</h1>
@@ -13,11 +13,11 @@
     <p id="cartCount">Items in cart: 0</p>
 
     <script>
-        // Check if local storage is enabled
-        function localStorageEnabled() {
+        // Check if session storage is enabled
+        function sessionStorageEnabled() {
             try {
-                localStorage.setItem('test', 'test');
-                localStorage.removeItem('test');
+                sessionStorage.setItem('test', 'test');
+                sessionStorage.removeItem('test');
                 return true;
             } catch (e) {
                 return false;
@@ -26,12 +26,12 @@
 
         // Function to add item to cart
         function addItemToCart(itemName) {
-            if (!localStorageEnabled()) {
-                alert("Local storage is not enabled in your browser.");
+            if (!sessionStorageEnabled()) {
+                alert("Session storage is not enabled in your browser.");
                 return;
             }
 
-            localStorage.setItem(itemName, true);
+            sessionStorage.setItem(itemName, true);
             console.log(`Item ${itemName} added to cart with value true.`);
             displayCart();
         }
@@ -55,19 +55,20 @@
 
         // Function to display the number of items in the cart
         function displayCart() {
-            if (!localStorageEnabled()) {
-                alert("Local storage is not enabled in your browser.");
+            if (!sessionStorageEnabled()) {
+                alert("Session storage is not enabled in your browser.");
                 return;
             }
 
             let cartCount = 0;
-            for (let i = 0; i < localStorage.length; i++) {
-                if (localStorage.getItem(localStorage.key(i)) === 'true') {
+            for (let i = 0; i < sessionStorage.length; i++) {
+                if (sessionStorage.getItem(sessionStorage.key(i)) === 'true') {
                     cartCount++;
                 }
             }
 
             document.getElementById('cartCount').textContent = `You previously had ${cartCount} items in your cart`;
+
         }
 
         // Initial load of items and display cart count
