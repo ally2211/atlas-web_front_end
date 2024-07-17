@@ -12,10 +12,16 @@
         #welcomeDiv {
             display: none; /* Hide welcome message initially */
         }
+        .italics {
+            display: inline;
+            font-style: italic;
+            font-weight: normal;
+            font-size: 10px;
+        }
     </style>
 </head>
 <body>
-    <div id="welcomDiv">hi <a href = "#" id="logout">(Logout)</a></div>
+    <div id="welcomeDiv"></div>
     <div id="loginForm">
         <h2>Login to the website</h2>
         <input type="text" id="firstname" name="fname" placeholder="Firstname">
@@ -38,20 +44,23 @@
             }
             function showForm() {
                 console.log('in showForm');
-                $('#loginForm').show();
-                $('#welcomeDiv').html('');              
+                $('#loginForm').show(); 
+                $('#welcomeDiv').hide();
             }        
             function hideForm(){
+                $('#welcomeDiv').show();
+                $('#loginForm').hide();
                 console.log('in hideForm');
                 const firstname = getCookie('firstname');
-                const welcomeMessage = `Welcome ${firstname}`;
+                const welcomeMessage = `<h1>Welcome: ${firstname}</h1><a href="#" id="logout" class="italics">(logout)</a>`;
+                $('#welcomeDiv').html(welcomeMessage).show();
                 console.log('welcome:' + welcomeMessage);
-                const targetDiv = $('#welcomeDiv');
-                const link = '(Logoutttt)';
-                createElement(welcomeMessage, link, targetDiv);
-
-                $('#loginform').html('');
-                
+                $('#logout').on('click', function() {
+                    deleteCookiesAndShowForm();
+                });
+                //const targetDiv = $('#welcomeDiv');
+                //const link = '(Logout)';
+                //createElement(welcomeMessage, link, targetDiv);        
             }
             function deleteCookiesAndShowForm() {
                 console.log('in deleteCookiesandShowForm');
@@ -71,11 +80,11 @@
             }
             // Function to create a text element
             function createElement(content, link,target) {
-                const alink = $('<a id="logout"></a>').text(link);
+                const alink = $('<a href="#" id="logout"></a>').text(link);
                 const newContent = $('<h1></h1>').text(content);
-                newAll = newContent.html() + alink.html();
+                newAll = newContent + alink;
                 console.log(newAll);
-                $(target).append(newAll).html();
+                $(target).append(newAll);
             }
             // Function to create a text element
             function createTextElement(content, target) {
@@ -109,6 +118,7 @@
                 const emailValue = $('#email').val();
                 setCookies('firstname', nameValue, 10); 
                 setCookies('email', emailValue, 10); 
+                showWelcomeMessageOrForm();
             });
             $('#ShowCookiesBtn').on('click', function() {
                 showCookies(); 
