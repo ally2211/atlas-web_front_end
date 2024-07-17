@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart Example</title>
+</head>
+<body>
+    <h1>Store Items</h1>
+    <div id="storeContainer"></div>
+
+    <h2>Cart</h2>
+    <p id="cartCount">Items in cart: 0</p>
+
+    <script>
+        // Check if local storage is enabled
+        function localStorageEnabled() {
+            try {
+                localStorage.setItem('test', 'test');
+                localStorage.removeItem('test');
+                return true;
+            } catch (e) {
+                return false;
+            }
+        }
+
+        // Function to add item to cart
+        function addItemToCart(itemName) {
+            if (!localStorageEnabled()) {
+                alert("Local storage is not enabled in your browser.");
+                return;
+            }
+
+            localStorage.setItem(itemName, true);
+            console.log(`Item ${itemName} added to cart with value true.`);
+            displayCart();
+        }
+
+        // Function to create store and add items to the list
+        function createStore() {
+            const itemNames = ['Shampoo','Soap', 'Sponge', 'Water'];
+            let storeContainer = document.getElementById('storeContainer');
+            let ul = document.createElement('ul');
+
+            itemNames.forEach(itemName => {
+                let li = document.createElement('li');
+                li.textContent = itemName;
+                li.style.cursor = 'pointer'; // Make it look clickable
+                li.onclick = () => addItemToCart(itemName);
+                ul.appendChild(li);
+            });
+
+            storeContainer.appendChild(ul);
+        }
+
+        // Function to display the number of items in the cart
+        function displayCart() {
+            if (!localStorageEnabled()) {
+                alert("Local storage is not enabled in your browser.");
+                return;
+            }
+
+            let cartCount = 0;
+            for (let i = 0; i < localStorage.length; i++) {
+                if (localStorage.getItem(localStorage.key(i)) === 'true') {
+                    cartCount++;
+                }
+            }
+
+            document.getElementById('cartCount').textContent = `You previously had ${cartCount} items in your cartt`;
+        }
+
+        // Initial load of items and display cart count
+        document.addEventListener('DOMContentLoaded', () => {
+            createStore();
+            displayCart();
+        });
+    </script>
+</body>
+</html>
