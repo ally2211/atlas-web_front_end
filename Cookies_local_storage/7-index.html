@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart Example with Session Storage</title>
+</head>
+<body>
+    <h1>Store Items</h1>
+    <div id="storeContainer"></div>
+
+    <h2>Cart</h2>
+    <p id="cartCount">Items in cart: 0</p>
+    <p id="cartContent"></p>
+
+    <script>
+        // Check if session storage is enabled
+        function sessionStorageEnabled() {
+            try {
+                sessionStorage.setItem('test', 'test');
+                sessionStorage.removeItem('test');
+                return true;
+            } catch (e) {
+               return false;
+            }
+        }
+
+        // Function to add item to cart
+        function addItemToCart(itemName) {
+
+            let cart = JSON.parse(sessionStorage.getItem('cart')) || {};
+
+            if (cart[itemName]) {
+                cart[itemName]++;
+            } else {
+                cart[itemName] = 1;
+            }
+
+            sessionStorage.setItem('cart', JSON.stringify(cart));
+            console.log(`Item ${itemName} added to cart. Quantity: ${cart[itemName]}`);
+            displayCart();
+        }
+
+
+        function removeItemfromCart(item){
+            let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+          
+            if (cart[itemName]) {
+                cart[itemName]--;
+            } else {
+                cart[itemName] = 0;
+            }
+
+            sessionStorage.setItem('cart', JSON.stringify(cart));
+            console.log(`Item ${itemName} added to cart. Quantity: ${cart[itemName]}`);
+        }
+
+        
+        function getCartFromStorage() {
+            let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+            let cartCount = cart.length;
+            document.getElementById('cartCount').textContent = `Items in cart: ${cartCount}`;
+            document.getElementById('cartContent').textContent = `Cart content: ${cart.join(', ')}`;
+       }
+
+        // Function to create store and add items to the list
+        function createStore() {
+            const itemNames = ['Shampoo','Soap', 'Sponge', 'Water'];
+            let storeContainer = document.getElementById('storeContainer');
+            
+            let h2 = document.createElement('h2');
+            h2.textContent ='Available products:';
+            storeContainer.appendChild(h2);
+
+            let ul = document.createElement('ul');
+
+            itemNames.forEach(itemName => {
+                let li = document.createElement('li');
+                li.textContent = itemName;
+                li.style.cursor = 'pointer'; // Make it look clickable
+                li.onclick = () => addItemToCart(itemName);
+                ul.appendChild(li);
+            });
+            storeContainer.appendChild(ul);
+        }
+
+        // Function to display the number of items in the cart
+        function displayCart() {
+
+            let cart = JSON.parse(sessionStorage.getItem('cart')) || {};
+            let cartCount = 0;
+            let cartContent = [];
+
+            for (let itemName in cart) {
+                cartCount += cart[itemName];
+                cartContent.push(`${itemName} (${cart[itemName]}))`);
+            }
+
+            document.getElementById('cartCount').textContent = `You previously had ${cartCount} items in your cart`;
+            document.getElementById('cartContent').textContent = `Cart content: ${cartContent.join(', ')}`;
+ 
+        }
+
+        // Initial load of items and display cart count
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!sessionStorageEnabled()) {
+                alert("Sorry, your browser does not support Web storage. Try again with a better one");
+                return;
+            }
+            createStore();
+            displayCart();
+        });
+    </script>
+</body>
+</html>
