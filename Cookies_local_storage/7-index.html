@@ -25,15 +25,13 @@
             }
         }
 
+        function getCartFromStorage() {
+            return JSON.parse(sessionStorage.getItem('cart')) || {};
+        }
+
         // Function to add item to cart
         function addItemToCart(itemName) {
-            if (!sessionStorageEnabled()) {
-                alert("Session storage is not enabled in your browser.");
-                return;
-            }
-
-            let cart = JSON.parse(sessionStorage.getItem('cart')) || {};
-
+            let cart = getCartFromStorage();
             if (cart[itemName]) {
                 cart[itemName]++;
             } else {
@@ -47,13 +45,7 @@
 
         // Function to remove item from cart
         function removeItemFromCart(itemName) {
-            if (!sessionStorageEnabled()) {
-                alert("Session storage is not enabled in your browser.");
-                return;
-            }
-
-            let cart = JSON.parse(sessionStorage.getItem('cart')) || {};
-
+            let cart = getCartFromStorage();
             if (cart[itemName]) {
                 delete cart[itemName];
             }
@@ -65,11 +57,6 @@
 
         // Function to clear the cart
         function clearCart() {
-            if (!sessionStorageEnabled()) {
-                alert("Session storage is not enabled in your browser.");
-                return;
-            }
-
             sessionStorage.removeItem('cart');
             console.log('Cart cleared.');
             displayCart();
@@ -101,12 +88,7 @@
 
         // Function to display the number of items in the cart and the content
         function displayCart() {
-            if (!sessionStorageEnabled()) {
-                alert("Session storage is not enabled in your browser.");
-                return;
-            }
-
-            let cart = JSON.parse(sessionStorage.getItem('cart')) || {};
+            let cart = getCartFromStorage();
             let cartCount = 0;
             let cartContent = document.getElementById('cartContent');
             cartContent.innerHTML = ''; // Clear previous content
@@ -144,6 +126,10 @@
 
         // Initial load of items and display cart count
         document.addEventListener('DOMContentLoaded', () => {
+            if (!sessionStorageEnabled()) {
+                alert("Session storage is not enabled in your browser.");
+                return;
+            }
             createStore();
             displayCart();  // Initialize the cart count and content
         });
