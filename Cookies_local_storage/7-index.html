@@ -11,7 +11,7 @@
 
     <h2>Cart</h2>
     <p id="cartCount">Items in cart: 0</p>
-    <p id="cartContent"></p>
+    <div id="cartContent"></div>
 
     <script>
         // Check if session storage is enabled
@@ -21,12 +21,16 @@
                 sessionStorage.removeItem('test');
                 return true;
             } catch (e) {
-               return false;
+                return false;
             }
         }
 
         // Function to add item to cart
         function addItemToCart(itemName) {
+            if (!sessionStorageEnabled()) {
+                alert("Session storage is not enabled in your browser.");
+                return;
+            }
 
             let cart = JSON.parse(sessionStorage.getItem('cart')) || {};
 
@@ -41,39 +45,49 @@
             displayCart();
         }
 
+        // Function to remove item from cart
+        function removeItemFromCart(itemName) {
+            if (!sessionStorageEnabled()) {
+                alert("Session storage is not enabled in your browser.");
+                return;
+            }
 
-        function removeItemfromCart(item){
-            let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
-          
+            let cart = JSON.parse(sessionStorage.getItem('cart')) || {};
+
             if (cart[itemName]) {
-                cart[itemName]--;
-            } else {
-                cart[itemName] = 0;
+                delete cart[itemName];
             }
 
             sessionStorage.setItem('cart', JSON.stringify(cart));
-            console.log(`Item ${itemName} added to cart. Quantity: ${cart[itemName]}`);
+            console.log(`Item ${itemName} removed from cart.`);
+            displayCart();
         }
 
-        
-        function getCartFromStorage() {
-            let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
-            let cartCount = cart.length;
-            document.getElementById('cartCount').textContent = `Items in cart: ${cartCount}`;
-            document.getElementById('cartContent').textContent = `Cart content: ${cart.join(', ')}`;
-       }
+        // Function to clear the cart
+        function clearCart() {
+            if (!sessionStorageEnabled()) {
+                alert("Session storage is not enabled in your browser.");
+                return;
+            }
+
+            sessionStorage.removeItem('cart');
+            console.log('Cart cleared.');
+            displayCart();
+        }
 
         // Function to create store and add items to the list
         function createStore() {
             const itemNames = ['Shampoo','Soap', 'Sponge', 'Water'];
+            
             let storeContainer = document.getElementById('storeContainer');
             
+            // Create and append h2 element
             let h2 = document.createElement('h2');
-            h2.textContent ='Available products:';
+            h2.textContent = 'Available products:';
             storeContainer.appendChild(h2);
 
+            // Create and append ul element
             let ul = document.createElement('ul');
-
             itemNames.forEach(itemName => {
                 let li = document.createElement('li');
                 li.textContent = itemName;
@@ -81,34 +95,57 @@
                 li.onclick = () => addItemToCart(itemName);
                 ul.appendChild(li);
             });
+
             storeContainer.appendChild(ul);
         }
 
-        // Function to display the number of items in the cart
+        // Function to display the number of items in the cart and the content
         function displayCart() {
+            if (!sessionStorageEnabled()) {
+                alert("Session storage is not enabled in your browser.");
+                return;
+            }
 
             let cart = JSON.parse(sessionStorage.getItem('cart')) || {};
             let cartCount = 0;
-            let cartContent = [];
+            let cartContent = document.getElementById('cartContent');
+            cartContent.innerHTML = ''; // Clear previous content
+
+            // Add "Clear my cart" item at the top
+            let clearCartItem = document.createElement('p');
+            clearCartItem.innerHTML = '<a href="#" id="clearCart">(Clear my cart)</a>';
+            cartContent.appendChild(clearCartItem);
 
             for (let itemName in cart) {
                 cartCount += cart[itemName];
-                cartContent.push(`${itemName} (${cart[itemName]}))`);
+                const rmMessage = `${itemName} x ${cart[itemName]} <a href="#" class="rmItem" data-item="${itemName}">(remove)</a>`;
+                let p = document.createElement('p');
+                p.innerHTML = rmMessage;
+                cartContent.appendChild(p);
             }
 
-            document.getElementById('cartCount').textContent = `You previously had ${cartCount} items in your cart`;
-            document.getElementById('cartContent').textContent = `Cart content: ${cartContent.join(', ')}`;
- 
+            document.getElementById('cartCount').textContent = `Items in cart: ${cartCount}`;
+
+            // Add event listeners to remove links
+            document.querySelectorAll('.rmItem').forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    let itemName = event.target.getAttribute('data-item');
+                    removeItemFromCart(itemName);
+                });
+            });
+
+            // Add event listener to "Clear my cart" link
+            document.getElementById('clearCart').addEventListener('click', (event) => {
+                event.preventDefault();
+                clearCart();
+            });
         }
 
         // Initial load of items and display cart count
         document.addEventListener('DOMContentLoaded', () => {
-            if (!sessionStorageEnabled()) {
-                alert("Sorry, your browser does not support Web storage. Try again with a better one");
-                return;
-            }
             createStore();
-            displayCart();
+            displayCart();  // Initialize the cart count and content
         });
     </script>
 </body>
